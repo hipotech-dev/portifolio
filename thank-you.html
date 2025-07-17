@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! - Hipotech</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        dark: {
+                            900: '#111827',
+                            800: '#1F2937',
+                            700: '#374151'
+                        }
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+        .check-animation {
+            animation: checkmark 0.5s ease-in-out;
+        }
+        @keyframes checkmark {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #3b82f6;
+            opacity: 0;
+        }
+        .dark .confetti {
+            background-color: #60a5fa;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Confetti elements -->
+    <div id="confetti-container"></div>
+    
+    <div class="text-center p-8 max-w-md mx-auto relative z-10">
+        <div class="check-animation text-6xl text-green-500 dark:text-green-400 mb-4">
+            <i class="ri-checkbox-circle-fill"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Thank You!</h1>
+        <p class="text-gray-600 dark:text-gray-300 mb-6">Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+        <div class="flex justify-center gap-4">
+            <a href="index.html" class="inline-flex items-center px-6 py-2 bg-primary text-white rounded-button font-medium hover:bg-blue-600 transition">
+                <i class="ri-arrow-left-line mr-2"></i> Return Home
+            </a>
+            <a href="Contact.html" class="inline-flex items-center px-6 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-button font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                <i class="ri-mail-line mr-2"></i> Contact Again
+            </a>
+        </div>
+        
+        <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <p class="text-sm text-gray-500 dark:text-gray-400">Need immediate assistance?</p>
+            <a href="tel:+255628049497" class="text-primary dark:text-blue-400 font-medium">
+                <i class="ri-phone-line mr-1"></i> +255 628 049 497
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create confetti effect
+            function createConfetti() {
+                const container = document.getElementById('confetti-container');
+                const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = -10 + 'px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    container.appendChild(confetti);
+                    
+                    const animation = confetti.animate([
+                        { top: -10 + 'px', opacity: 1 },
+                        { top: Math.random() * 100 + 'vh', opacity: 0 }
+                    ], {
+                        duration: 2000 + Math.random() * 3000,
+                        delay: Math.random() * 2000,
+                        easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
+                    });
+                    
+                    animation.onfinish = () => confetti.remove();
+                }
+            }
+            
+            // Create initial confetti
+            createConfetti();
+            
+            // Check for dark mode preference
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            const currentTheme = localStorage.getItem('theme');
+            
+            if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Watch for system theme changes
+            prefersDarkScheme.addListener(e => {
+                if (localStorage.getItem('theme') === null) {
+                    if (e.matches) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
