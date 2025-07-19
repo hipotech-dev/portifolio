@@ -376,6 +376,7 @@ body.dark .mobile-menu a:hover {
     background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%), 
                 url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     background-attachment: fixed;
+    padding-top: 80px; /* Add padding to account for fixed header */
 }
 
 body.dark .hero {
@@ -1330,9 +1331,15 @@ body.dark .loader-wrapper {
         display: block;
     }
 
+    .hero {
+        padding-top: 100px; /* Increase padding for mobile to ensure content is visible */
+        min-height: 90vh; /* Increase height for mobile */
+    }
+
     .hero-content {
         flex-direction: column;
         text-align: center;
+        padding-top: 2rem; /* Add extra padding for mobile */
     }
 
     .hero-image img {
@@ -1423,7 +1430,7 @@ body.dark .loader-wrapper {
             <div class="hero-content">
                 <div class="hero-text animate-on-scroll">
                     <p class="tagline">IT Specialist & Digital Designer</p>
-                    <h1>Hi, I'm Hipolito</h1>
+                    <h1>Hi, I'm Hipolito Alexander </h1>
                     <span class="experience-badge">5+ YEARS EXPERIENCE</span>
                     <p>Multi-skilled IT professional helping businesses build and maintain reliable, modern tech systems — from secure networks to stunning websites.</p>
                     <a href="#contact" class="btn btn-accent">WORK WITH ME</a>
@@ -1431,7 +1438,7 @@ body.dark .loader-wrapper {
                         <a href="https://wa.me/255628049497?text=Hello%20Hipolito,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" title="Chat on WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://www.instagram.com/yourusername" target="_blank" title="Follow on Instagram">
+                        <a href="https://www.instagram.com/hipo_alexander" target="_blank" title="Follow on Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="tel:+255628049497" title="Call Me">
@@ -1879,23 +1886,6 @@ body.dark .loader-wrapper {
                             <div>
                                 <h4 class="font-medium mb-1">Working Hours</h4>
                                 <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="mt-8">
-                            <h4 class="font-medium mb-4">Follow Us</h4>
-                            <div class="flex">
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full mr-3 hover:bg-gray-200 transition">
-                                    <i class="ri-linkedin-fill text-gray-600"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full mr-3 hover:bg-gray-200 transition">
-                                    <i class="ri-twitter-fill text-gray-600"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full mr-3 hover:bg-gray-200 transition">
-                                    <i class="ri-facebook-fill text-gray-600"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full mr-3 hover:bg-gray-200 transition">
-                                    <i class="ri-instagram-fill text-gray-600"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
